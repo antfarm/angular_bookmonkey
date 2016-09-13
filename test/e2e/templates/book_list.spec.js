@@ -84,4 +84,25 @@ describe("E2E: book list view", function () {
             repeater(selector).column('book.title')
         ).toEqual([orderedTitles[0]]);
     });
+
+    it('should appropriately navigate to details view', function() {
+        var i = 0,
+        detailsLink = selector + ':nth-child('+ (i+1) +') a';
+        element(detailsLink).click();
+
+        expect(
+            browser().location().path()
+        ).toEqual('/books/' + expectedBooks[i].isbn);
+    });
+
+    it('should appropriately navigate to list view', function() {
+        browser().navigateTo('#/books/978-3-89864-728-1');
+
+        element('.bm-list-view-btn').click();
+
+        expect(
+            browser().location().path()
+        ).toEqual('/books');
+    });
+
 });
