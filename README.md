@@ -3,6 +3,7 @@
 Dependencies:
 
 ```
+$ npm list -g --depth=0
 /usr/local/lib
 ├── http-server@0.9.0
 ├── jasmine@2.5.1
